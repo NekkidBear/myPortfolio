@@ -1,0 +1,92 @@
+---
+import { Container, Typography, Button, Stack, Link } from '@mui/material';
+import { ThemeProvider } from '@mui/material';
+import theme from '../theme/theme.js';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+
+const socialLinks = [
+  { icon: FaGithub, text: 'GitHub', url: 'https://github.com/nekkidBear' },
+  { icon: FaLinkedin, text: 'LinkedIn', url: 'https://www.linkedin.com/in/jason-king-lowe' },
+];
+---
+
+<ThemeProvider theme={theme}>
+  <Container maxWidth="md" sx={{ my: 4 }}>
+    <Typography variant="h1" component="h1" gutterBottom align="center">
+      About Jason King-Lowe
+    </Typography>
+
+    <section>
+      <Typography variant="h2" gutterBottom>
+        The Spark: A Lifelong Passion for Tech
+      </Typography>
+      <Typography variant="body1" paragraph>
+        My journey into the world of technology began with a Commodore VIC 20 and a stack of computing magazines. As a child, I'd sit with my parents, eagerly typing in code from "Compute's Gazette." Watching those lines transform into working programs wasn't just fun—it was magical. That's when I realized: I could make computers do what I wanted. This early fascination blossomed into a lifelong passion for technology that drives me to this day.
+      </Typography>
+    </section>
+
+    <section>
+      <Typography variant="h2" gutterBottom>
+        The Quest: From Support to Full-Stack Engineering
+      </Typography>
+      <Typography variant="body1" paragraph>
+        My career path took an exciting turn through IT support, where I honed my skills in remote troubleshooting and user experience. Translating 'end-user speak' into actionable tech solutions became my superpower, leading to top-notch customer satisfaction ratings. But I wanted more. I dove into self-teaching, mastering modern languages like JavaScript, Python, and SQL, and frameworks like Node.js, React, and Redux.
+      </Typography>
+      <Typography variant="body1" paragraph>
+        Now, as a full-stack engineer, I bring that same childhood wonder to every project. Whether it's crafting responsive UIs with React, building robust APIs with Node.js, or wrangling data with SQL and Python, I love the challenge of creating solutions that are as elegant under the hood as they are intuitive for users.
+      </Typography>
+    </section>
+
+    <section>
+      <Typography variant="h2" gutterBottom>
+        The Philosophy: Tech with a Human Touch
+      </Typography>
+      <Typography variant="body1" paragraph>
+        My time in IT support taught me a crucial lesson: great tech is about people. It's not just about fixing bugs or optimizing algorithms (though I love doing both). It's about empathy, about understanding the user's frustrations and aspirations. This human-centric approach guides everything I do. I don't just write code; I craft experiences that delight and empower users.
+      </Typography>
+    </section>
+
+    <section>
+      <Typography variant="h2" gutterBottom>
+        The Projects: Bringing Ideas to Life
+      </Typography>
+      <Typography variant="body1" paragraph>
+        In my <Link href="/projects" color="primary">Projects</Link> section, you'll see this philosophy in action. Each project, from [ProjectName1] to [ProjectName2], represents a problem solved, a user experience enhanced, or a clever bit of code that I'm particularly proud of. They showcase not just my technical skills, but my commitment to clean, maintainable code and intuitive design.
+      </Typography>
+    </section>
+
+    <section>
+      <Typography variant="h2" gutterBottom>
+        The Future: Always Learning, Always Growing
+      </Typography>
+      <Typography variant="body1" paragraph>
+        The tech world never stands still, and neither do I. I'm always exploring new languages, frameworks, and paradigms. Currently, I'm diving deeper into [TechYou'reCurrentlyExploring], excited by its potential to [WhatExcitesYouAboutIt].
+      </Typography>
+      <Typography variant="body1" paragraph>
+        I bring this hunger for knowledge to every team I'm part of. I believe in the power of collaboration, in sharing ideas and learning from peers. In a rapidly evolving field like ours, the ability to adapt and grow together is key.
+      </Typography>
+    </section>
+
+    <section>
+      <Typography variant="h2" gutterBottom>
+        Let's Build Something Amazing
+      </Typography>
+      <Typography variant="body1" paragraph>
+        If you're looking for a full-stack engineer who combines technical prowess with a genuine passion for user-centric solutions, you're in the right place. I'm excited about the possibility of bringing my skills, my drive, and yes, that same wide-eyed wonder I had with my first VIC 20, to your projects.
+      </Typography>
+      <Typography variant="body1" paragraph>
+        Feel free to explore my projects, check out my code on GitHub, or connect with me on LinkedIn. Whether you're a fellow dev, a potential employer, or just someone who loves tech, I'm always happy to chat. Let's discuss how we can use technology to make a positive impact, one line of code at a time.
+      </Typography>
+    </section>
+
+    <Stack direction="row" spacing={3} justifyContent="center" sx={{ mt: 6 }}>
+      {socialLinks.map(({ icon: Icon, text, url }) => (
+        <Fragment key={text}>
+          {<Button variant="outlined" startIcon={<Icon />} href={url} target="_blank" rel="noopener noreferrer">
+            {text}
+          </Button>}
+        </Fragment>
+      ))}
+    </Stack>
+  </Container>
+</ThemeProvider>
