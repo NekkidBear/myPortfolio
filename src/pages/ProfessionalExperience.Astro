@@ -1,0 +1,287 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ContactCTA from "../components/ContactCTA.astro";
+
+const skills = [
+  "JavaScript",
+  "Python",
+  "SQL",
+  "React",
+  "Redux",
+  "HTML",
+  "CSS",
+  "Material UI",
+  "Node.js",
+  "Express",
+  "PostgreSQL",
+  "Agile/Scrum",
+  "Git",
+  "PowerBI",
+  "Microsoft 365",
+];
+
+const projects = [
+  {
+    title: "SupprThyme",
+    period: "February 2024 - Present",
+    org: "Prime Digital Academy (Solo Project)",
+    description:
+      "An app that simplifies restaurant decision-making for groups.",
+    tech: ["React", "Redux", "Node.js", "Express", "PostgreSQL"],
+  },
+  {
+    title: "Service Desk Metrics Dashboard",
+    period: "2023",
+    org: "Blue Cross Blue Shield of Minnesota",
+    description: [
+      "Streamlined Service Desk Metrics reporting for leadership.",
+      "Reduced report creation time from ~4 hours to ~20 minutes.",
+      "Compiled data into Power BI visuals for enhanced insights.",
+      "Improved information dissemination via a centralized OneDrive link.",
+    ],
+    tech: ["PowerBI", "OneDrive", "Data Analysis"],
+  },
+];
+
+const experience = [
+  {
+    title: "Service Desk Support Specialist",
+    company: "Blue Cross Blue Shield of Minnesota",
+    period: "2016 – 2023",
+    highlights: [
+      "Led a sub-team of 3 associates as a Pod Leader, providing training and performance feedback.",
+      "Authored and updated Knowledge Base articles using ITIL best practices.",
+      "Created Visio flowcharts to streamline troubleshooting and training, aligning with agile methodologies.",
+    ],
+  },
+  {
+    title: "Help Desk Specialist",
+    company: "3M (via TEK Systems)",
+    period: "2009 - 2016",
+    highlights: [
+      "Performed remote troubleshooting and repairs using various tools.",
+      "Specialized in Microsoft Office programs, particularly Excel, Access, Project, and Visio.",
+      "Supported internally developed tools and mobile device troubleshooting.",
+    ],
+  },
+];
+
+const education = [
+  {
+    degree: "Full Stack Software Engineering Certification",
+    institution: "Prime Digital Academy",
+    period: "Expected Graduation: July 2024",
+    highlights: [
+      "Training in public speaking, presentation, diversity & inclusion.",
+      "Professional skill development, collaborative projects, and real-world client work.",
+    ],
+  },
+  {
+    degree:
+      "Associate of Applied Science (AAS) - Information Technology Management",
+    institution: "Rasmussen University",
+    period: "2006",
+  },
+];
+---
+
+<BaseLayout
+  title="Resume | Jason King-Lowe"
+  description="Professional experience and skills of Jason King-Lowe, Full-Stack Engineer"
+>
+  <div class="stack gap-20">
+    <main class="wrapper resume">
+      <h1 class="resume-title">Professional Journey</h1>
+
+      <section>
+        <h2 class="section-title">Technical Skills</h2>
+        <ul class="skills-list">
+          {skills.map((skill) => <li>{skill}</li>)}
+        </ul>
+      </section>
+
+      <section>
+        <h2 class="section-title">Key Projects</h2>
+        <div class="projects-list">
+          {
+            projects.map((project) => (
+              <div class="project-item">
+                <h3 class="project-title">{project.title}</h3>
+                <p class="project-meta">
+                  {project.org} | {project.period}
+                </p>
+                {typeof project.description === "string" ? (
+                  <p class="project-desc">{project.description}</p>
+                ) : (
+                  <ul class="project-highlights">
+                    {project.description.map((point) => (
+                      <li>{point}</li>
+                    ))}
+                  </ul>
+                )}
+                <div class="project-tech">
+                  {project.tech.map((tech) => (
+                    <span class="tech-tag">{tech}</span>
+                  ))}
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="experience-list">
+          {
+            experience.map((job) => (
+              <div class="job-item">
+                <h3 class="job-title">
+                  {job.title} at {job.company}
+                </h3>
+                <p class="job-period">{job.period}</p>
+                <ul class="job-highlights">
+                  {job.highlights.map((highlight) => (
+                    <li>{highlight}</li>
+                  ))}
+                </ul>
+              </div>
+            ))
+          }
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">Education</h2>
+        <div class="education-list">
+          {
+            education.map((edu) => (
+              <div class="edu-item">
+                <h3 class="edu-title">{edu.degree}</h3>
+                <p class="edu-institution">{edu.institution}</p>
+                <p class="edu-period">{edu.period}</p>
+                {edu.highlights && (
+                  <ul class="edu-highlights">
+                    {edu.highlights.map((highlight) => (
+                      <li>{highlight}</li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            ))
+          }
+        </div>
+      </section>
+    </main>
+
+    <ContactCTA />
+  </div>
+</BaseLayout>
+
+<style>
+  .resume {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+  }
+
+  .resume-title {
+    font-size: var(--text-3xl);
+    text-align: center;
+    color: var(--gray-0);
+    margin-bottom: 2rem;
+  }
+
+  .section-title {
+    font-size: var(--text-xl);
+    color: var(--gray-0);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--gray-800);
+  }
+
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+  }
+
+  .skills-list li {
+    background-color: var(--gray-999);
+    color: var(--gray-200);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: var(--text-sm);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .projects-list,
+  .experience-list,
+  .education-list {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .project-item,
+  .job-item,
+  .edu-item {
+    background-color: var(--gray-999);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .project-title,
+  .job-title,
+  .edu-title {
+    font-size: var(--text-lg);
+    color: var(--gray-0);
+    margin: 0 0 0.5rem;
+  }
+
+  .project-meta,
+  .job-period,
+  .edu-institution,
+  .edu-period {
+    font-size: var(--text-sm);
+    color: var(--gray-400);
+    margin-bottom: 1rem;
+  }
+
+  .project-desc,
+  .project-highlights,
+  .job-highlights,
+  .edu-highlights {
+    color: var(--gray-300);
+  }
+
+  .project-highlights,
+  .job-highlights,
+  .edu-highlights {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .tech-tag {
+    background-color: var(--gray-800);
+    color: var(--gray-300);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: var(--text-xs);
+  }
+
+  @media (min-width: 50em) {
+    .projects-list {
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+  }
+</style>
