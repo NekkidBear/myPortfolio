@@ -1,7 +1,7 @@
 ---
 title: SupprThyme
 publishDate: 2022-12-01 00:00:00
-img: /assets/supprthyme.jpg
+img: /assets/supprthyme.png
 img_alt: Screenshot of the SupprThyme application
 description: |
     SupprThyme is a web app designed to facilitate group decisions about the restaurant they want. It takes into account individual preferences and dietary restrictions, making group dining decisions a breeze.
